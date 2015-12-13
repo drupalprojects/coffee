@@ -16,7 +16,7 @@ function coffee_coffee_commands() {
 
   // Add in a link for the frontpage.
   $commands[] = array(
-    'value' => '',
+    'value' => Url::fromRoute('<front>')->toString(),
     'label' => t('Go to front page'),
     'command' => ':front',
   );
@@ -39,4 +39,3 @@ function coffee_coffee_commands() {
 
   return $commands;
 }
-
