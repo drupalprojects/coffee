@@ -1,11 +1,11 @@
 <?php
+
 /**
  * @file
  * The hooks that are used by Coffee
  * includes an example of hook_coffee_commands().
  */
 
-use Drupal\Core;
 use Drupal\Core\Url;
 
 /**
@@ -24,15 +24,15 @@ function coffee_coffee_commands() {
   // The command is ":add" and includes the link_title to empower the
   // autocompletion.
   $command = ':add';
-  $em = \Drupal::entityManager();
+  $entity_manager = \Drupal::entityTypeManager();
   // Only use node types the user has access to.
-  foreach ($em->getStorage('node_type')->loadMultiple() as $type) {
-    $node_type = $type->bundle();
-    if ($em->getAccessControlHandler('node')->createAccess($node_type)) {
+  foreach ($entity_manager->getStorage('node_type')->loadMultiple() as $type) {
+    $node_type = $type->id();
+    if ($entity_manager->getAccessControlHandler('node')->createAccess($node_type)) {
       $commands[] = array(
-        'value' => Url::fromUri('base://node/add/' . $node_type)->toString(),
-        'label' => $node_type,
-        'command' => $command . ' ' . $node_type,
+        'value' => Url::fromRoute('node.add', ['node_type' => $node_type])->toString(),
+        'label' => $type->label(),
+        'command' => $command . ' ' . $type->label(),
       );
     }
   }
