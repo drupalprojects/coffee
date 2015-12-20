@@ -21,7 +21,7 @@ class CoffeeTest extends WebTestBase {
    *
    * @var array
    */
-  public static $modules = ['coffee', 'menu_ui'];
+  public static $modules = ['coffee'];
 
   /**
    * The user for tests.
