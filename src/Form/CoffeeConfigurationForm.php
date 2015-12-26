@@ -46,6 +46,16 @@ class CoffeeConfigurationForm extends ConfigFormBase {
       '#default_value' => $config->get('coffee_menus'),
     ];
 
+    $form['max_results'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Max results'),
+      '#description' => $this->t('Maximum number of items to show in the search results.'),
+      '#default_value' => $config->get('max_results'),
+      '#required' => TRUE,
+      '#min' => 1,
+      '#max' => 50,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -56,6 +66,7 @@ class CoffeeConfigurationForm extends ConfigFormBase {
     $values = $form_state->getValues();
     $this->config('coffee.configuration')
       ->set('coffee_menus', array_filter($values['coffee_menus']))
+      ->set('max_results', $values['max_results'])
       ->save();
 
     parent::submitForm($form, $form_state);
