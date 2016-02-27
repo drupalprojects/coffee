@@ -92,6 +92,7 @@ class CoffeeController extends ControllerBase {
 
     foreach ($this->config->get('coffee_menus') as $menu_name) {
       $tree = $this->getMenuTreeElements($menu_name);
+      $commands_group = $menu_name == 'account' ? ':user' : NULL;
 
       foreach ($tree as $tree_element) {
         $link = $tree_element->link;
@@ -99,7 +100,7 @@ class CoffeeController extends ControllerBase {
         $output[$link->getRouteName()] = array(
           'value' => $link->getUrlObject()->toString(),
           'label' => $link->getTitle(),
-          'command' => $menu_name == 'user-menu' ? ':user' : NULL,
+          'command' => $commands_group,
         );
 
         $tasks = $this->getLocalTasksForRoute($link->getRouteName(), $link->getRouteParameters());
