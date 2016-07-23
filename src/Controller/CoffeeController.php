@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\coffee\Controller\CoffeeController.
- */
-
 namespace Drupal\coffee\Controller;
 
 use Drupal\Core\Access\AccessManagerInterface;

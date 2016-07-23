@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\coffee\Tests\CoffeeHookCoffeeCommandsTest.
- */
-
 namespace Drupal\coffee\Tests;
 
 use Drupal\Core\Url;

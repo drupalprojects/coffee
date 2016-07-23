@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\coffee\Tests\CoffeeTest.
- */
-
 namespace Drupal\coffee\Tests;
 
 use Drupal\simpletest\WebTestBase;
