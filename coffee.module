@@ -80,7 +80,7 @@ function coffee_toolbar() {
         '#title' => t('Go to'),
         '#url' => Url::fromRoute('<none>'),
         '#attributes' => [
-          'title' => t('Use alt+d to start Coffee and search for a page to go to '),
+          'title' => t('Use alt+d to start Coffee and search for a page to go to'),
           'class' => ['toolbar-icon', 'toolbar-icon-coffee'],
         ],
       ],

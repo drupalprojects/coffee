@@ -183,9 +183,9 @@ class CoffeeController extends ControllerBase {
     $tree = $this->localTaskManager->getLocalTasksForRoute($route_name);
     $route_match = \Drupal::routeMatch();
 
-    foreach ($tree as $level => $instances) {
-      /** @var $instances \Drupal\Core\Menu\LocalTaskInterface[] */
-      foreach ($instances as $plugin_id => $child) {
+    foreach ($tree as $instances) {
+      /* @var $instances \Drupal\Core\Menu\LocalTaskInterface[] */
+      foreach ($instances as $child) {
         $child_route_name = $child->getRouteName();
         // Merges the parent's route parameter with the child ones since you
         // calculate the local tasks outside of parent route context.

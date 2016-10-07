@@ -42,7 +42,7 @@ class CoffeeTest extends WebTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(){
+  public function setUp() {
     parent::setUp();
 
     $this->webUser = $this->drupalCreateUser();
@@ -74,7 +74,7 @@ class CoffeeTest extends WebTestBase {
     $expected = [
       'admin' => 'admin',
       'tools' => 'tools',
-      'account' => 'account'
+      'account' => 'account',
     ];
     $config = \Drupal::config('coffee.configuration')->get('coffee_menus');
     $this->assertEqual($expected, $config, 'The configuration options have been properly saved');

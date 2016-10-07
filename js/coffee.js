@@ -33,7 +33,7 @@
   });
 
   /**
-   * Coffee module namespace
+   * Coffee module namespace.
    *
    * @namespace
    *
@@ -51,7 +51,7 @@
    * @prop {Drupal~behaviorAttach} attach
    *   Attach coffee functionality to the page.
    *
-   *   @todo get most of it out of the behavior in dedicated functions.
+   * @todo get most of it out of the behavior in dedicated functions.
    */
   Drupal.behaviors.coffee = {
     attach: function () {
@@ -79,11 +79,11 @@
           success: function (data) {
             DrupalCoffee.dataset = data;
 
-            // Apply autocomplete plugin on show
+            // Apply autocomplete plugin on show.
             var $autocomplete = $(DrupalCoffee.field).autocomplete({
               source: DrupalCoffee.dataset,
               focus: function (event, ui) {
-                // Prevents replacing the value of the input field
+                // Prevents replacing the value of the input field.
                 DrupalCoffee.isItemSelected = true;
                 event.preventDefault();
               },
@@ -100,7 +100,7 @@
             });
 
             $autocomplete.data(autocomplete_data_element)._renderItem = function (ul, item) {
-              // strip the basePath when displaying the link description
+              // Strip the basePath when displaying the link description.
               var description = item.value;
               if (item.value.indexOf(drupalSettings.path.basePath) === 0) {
                 description = item.value.substring(drupalSettings.path.basePath.length);
@@ -147,7 +147,7 @@
           event.preventDefault();
           DrupalCoffee.coffee_show();
         });
-        // Key events
+        // Key events.
         $(document).keydown(function (event) {
 
           // Show the form with alt + D. Use 2 keycodes as 'D' can be uppercase or lowercase.
@@ -172,7 +172,6 @@
 
   // Prefix the open and close functions to avoid
   // conflicts with autocomplete plugin.
-
   /**
    * Open the form and focus on the search field.
    */
