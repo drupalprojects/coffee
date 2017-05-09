@@ -83,7 +83,7 @@ class CoffeeController extends ControllerBase {
    *   The json response.
    */
   public function coffeeData() {
-    $output = array();
+    $output = [];
 
     foreach ($this->config->get('coffee_menus') as $menu_name) {
       $tree = $this->getMenuTreeElements($menu_name);
@@ -92,21 +92,21 @@ class CoffeeController extends ControllerBase {
       foreach ($tree as $tree_element) {
         $link = $tree_element->link;
 
-        $output[$link->getRouteName()] = array(
+        $output[$link->getRouteName()] = [
           'value' => $link->getUrlObject()->toString(),
           'label' => $link->getTitle(),
           'command' => $commands_group,
-        );
+        ];
 
         $tasks = $this->getLocalTasksForRoute($link->getRouteName(), $link->getRouteParameters());
 
         foreach ($tasks as $route_name => $task) {
           if (empty($output[$route_name])) {
-            $output[$route_name] = array(
+            $output[$route_name] = [
               'value' => $task['url']->toString(),
               'label' => $link->getTitle() . ' - ' . $task['title'],
               'command' => NULL,
-            );
+            ];
           }
         }
       }
@@ -178,7 +178,7 @@ class CoffeeController extends ControllerBase {
    *     - localized_options: the localized options for the local task.
    */
   protected function getLocalTasksForRoute($route_name, array $route_parameters) {
-    $links = array();
+    $links = [];
 
     $tree = $this->localTaskManager->getLocalTasksForRoute($route_name);
     $route_match = \Drupal::routeMatch();
